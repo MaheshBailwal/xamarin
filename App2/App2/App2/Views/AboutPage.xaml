@@ -21,15 +21,21 @@
         </StackLayout>
         <StackLayout x:Name="stack1" BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+
                 <Button Clicked="Privous_Clicked" Text="Privious"/>
-                <Button Clicked="Reminder_Clicked" Text="AddReminder"/>
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                <ContentView Padding="0,10,0,10" VerticalOptions="FillAndExpand">
                     <Image x:Name="productImage" Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
                 </ContentView>
+                <Editor x:Name="txtEditor" Text="" FontSize="Small" Margin="0" BackgroundColor="White" WidthRequest="200"/>
                 <Button Clicked="BtnNext_Clicked" Text="Next"/>
-
-
+      
             </StackLayout>
+
+            <ScrollView>
+                <StackLayout  x:Name="mainStackLayout">
+                </StackLayout>
+            </ScrollView>
+
         </StackLayout>
 
 

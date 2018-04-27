@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.IO;
 using Xamarin.Forms.PlatformConfiguration;
 
@@ -17,24 +18,26 @@ namespace App2.Models
 
     public class DataSetReader
     {
- //       public void Read()
- //       {
-
- //           var pathFile = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads);
- //           var absolutePath = pathFile.AbsolutePath;
-
- //           var documents =
- //Environment.GetFolderPath(Environment.SpecialFolder.Personal);
- //        //   var filename = Path.Combine(absolutePath, "Write123.txt");
+        public DataTable Read()
+        {
 
 
- //           var path = Android.OS.Environment.ExternalStorageDirectory.AbsolutePath;
- //           var filename = Path.Combine(path.ToString(), "myfile.txt");
+            var path = Android.OS.Environment.ExternalStorageDirectory.AbsolutePath;
+            var filename = Path.Combine(path.ToString(), "myfile.txt");
 
- //           File.WriteAllText(filename, "Write this text into a file");
+            File.WriteAllText(filename, "Write this text into a file");
 
- //           //DataSet dst = new DataSet();
- //           //dst.ReadXml()
- //       }
+
+
+            var directory = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads);
+
+
+            var file = System.IO.Path.Combine(directory.AbsolutePath, "100.XML");
+
+            DataSet dst = new DataSet();
+            dst.ReadXml(file);
+           return dst.Tables[0];
+        }
     }
+
 }

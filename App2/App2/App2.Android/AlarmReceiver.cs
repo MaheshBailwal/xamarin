@@ -81,6 +81,11 @@ namespace App2.Droid
                 mediaPlayer.SetDataSource(audioFile);
             }
 
+            mediaPlayer.Completion += delegate
+            {
+                mediaPlayer.Release();
+                mediaPlayer.Dispose();
+            };
             mediaPlayer.Prepare();
             mediaPlayer.SetAudioStreamType(Stream.Music);
             mediaPlayer.Start();
@@ -122,6 +127,8 @@ namespace App2.Droid
             alert.Show();
 
         }
+
+
 
     }
 

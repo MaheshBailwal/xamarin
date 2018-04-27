@@ -53,14 +53,18 @@ namespace App2.Droid
 
         private void PlayMusic()
         {
-            //            Environment.GetExternalStoragePublicDirectory(Environment.Ass)
-
-         
             MediaPlayer mediaPlayer = new MediaPlayer();
             mediaPlayer.SetDataSource("http://www.kozco.com/tech/32.mp3");
             mediaPlayer.Prepare();
             mediaPlayer.SetAudioStreamType(Stream.Music);
+            mediaPlayer.Completion += delegate
+            {
+                mediaPlayer.Release();
+                mediaPlayer.Dispose();
+            };
+
             mediaPlayer.Start();
+
         }
 
     }

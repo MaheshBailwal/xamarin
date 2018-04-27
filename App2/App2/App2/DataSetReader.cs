@@ -10,7 +10,6 @@ namespace App2
     {
         public void Read()
         {
-          
             var documents =
  Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             var filename = Path.Combine(documents, "Write123.txt");
