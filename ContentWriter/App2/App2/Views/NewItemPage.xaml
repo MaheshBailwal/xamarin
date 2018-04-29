@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="App2.Views.NewItemPage"
+		     Title="New Item">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+
+            <Label Text="ID" FontSize="Medium" />
+            <Entry Text="{Binding Item.Id}" FontSize="Small" />
+
+            <Label Text="Name" FontSize="Medium" />
+            <Entry Text="{Binding Item.Name}" FontSize="Small" />
+           
+            <Label Text="Notes" FontSize="Medium" />
+            <Editor Text="{Binding Item.Notes}" FontSize="Small" Margin="0" />
+           
+            <Label Text="Interval" FontSize="Medium" />
+            <Editor Text="{Binding Item.IntervalInMinutes}" FontSize="Small" Margin="0" />
+
+            <Label Text="Audio File (in downloads)" FontSize="Medium" />
+            <Editor Text="{Binding Item.AudioFileName}" FontSize="Small" Margin="0" />
+
+            <Label Text="Enabled" FontSize="Medium" />
+            <Editor Text="{Binding Item.IsReminderEnabled}" FontSize="Small" Margin="0" />
+        
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
