@@ -13,5 +13,8 @@
         <Label Text="Interval:" FontSize="Medium" />
         <Label Text="{Binding Item.IntervalInMinutes}" FontSize="Small"/>
 
+        <Label Text="Verbiration Duration:" FontSize="Medium" />
+        <Label Text="{Binding Item.IntervalInMinutes}" FontSize="Small"/>
+
     </StackLayout>
 </ContentPage>

@@ -24,6 +24,7 @@ namespace App2.Views
             };
 
             BindingContext = this;
+
         }
 
         public NewItemPage(Item item)

@@ -43,7 +43,7 @@ namespace App2.ViewModels
                 var remiderService = DependencyService.Get<IReminderService>();
                 if (item.IsReminderEnabled)
                 {
-                    remiderService.Remind(item.Name , item.Notes, item.IntervalInMinutes, item.AudioFileName);
+                    remiderService.Remind(item);
                 }
 
             });

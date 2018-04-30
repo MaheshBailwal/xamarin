@@ -48,13 +48,20 @@ namespace App2.Droid
             var notification = builder.Build();
             manager.Notify(0, notification);
 
-            Vibrator vibrator = (Vibrator)context.GetSystemService(Context.VibratorService);
-            vibrator.Vibrate(5 * 1000);
+            if (intent.GetBooleanExtra("CanViberation", true))
+            {
+                Vibrator vibrator = (Vibrator)context.GetSystemService(Context.VibratorService);
+                vibrator.Vibrate(5 * 1000);
+            }
 
-            PlayMusic();
-            //PlayRingtone(context);
-            Toast.MakeText(context, message, ToastLength.Long).Show();
-
+            if (intent.GetBooleanExtra("CanPlayAudio", true))
+            {
+                PlayMusic();
+            }
+            if (intent.GetBooleanExtra("CanShowMessage", true))
+            {
+                Toast.MakeText(context, message, ToastLength.Long).Show();
+            }
         }
 
         private void PlayRingtone()
@@ -65,13 +72,11 @@ namespace App2.Droid
         }
         private void PlayMusic()
         {
-
-          
             MediaPlayer mediaPlayer = new MediaPlayer();
 
             var audioFile = GetAudioFile();
 
-            if(string.IsNullOrEmpty( audioFile))
+            if (string.IsNullOrEmpty(audioFile))
             {
                 var resourceFile = _context.Assets.OpenFd("awater_on_lake_loop.mp3");
                 mediaPlayer.SetDataSource(resourceFile.FileDescriptor, resourceFile.StartOffset, resourceFile.Length);

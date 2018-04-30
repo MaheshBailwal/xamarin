@@ -11,8 +11,6 @@ namespace App2
 		public App ()
 		{
 			InitializeComponent();
-
-
             MainPage = new NavigationPage(new AboutPage());
         }
 

@@ -24,9 +24,33 @@
             <Label Text="Audio File (in downloads)" FontSize="Medium" />
             <Editor Text="{Binding Item.AudioFileName}" FontSize="Small" Margin="0" />
 
-            <Label Text="Enabled" FontSize="Medium" />
-            <Editor Text="{Binding Item.IsReminderEnabled}" FontSize="Small" Margin="0" />
-        
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+       
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <Label Text="Enabled" FontSize="Medium" Grid.Column="0" Grid.Row="0" />
+                <Switch IsToggled="{Binding Item.IsReminderEnabled}" Grid.Column="1" Grid.Row="0"></Switch>
+
+                <Label Text="Viberate" FontSize="Medium" Grid.Column="0" Grid.Row="1" />
+                <Switch IsToggled="{Binding Item.CanViberation}" Grid.Column="1" Grid.Row="1"></Switch>
+
+                <Label Text="Play" FontSize="Medium" Grid.Column="0" Grid.Row="2" />
+                <Switch IsToggled="{Binding Item.CanPlayAudio}" Grid.Column="1" Grid.Row="2"></Switch>
+
+                <Label Text="Message PopUp" FontSize="Medium" Grid.Column="0" Grid.Row="3" />
+                <Switch IsToggled="{Binding Item.CanShowMessage}" Grid.Column="1" Grid.Row="3"></Switch>
+
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

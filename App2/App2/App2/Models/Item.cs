@@ -11,33 +11,13 @@ namespace App2.Models
         public string Name { get; set; }
         public bool IsReminderEnabled { get; set; }
         public string Notes { get; set; }
+        public int VerbirationDuration { get; set; }
         public int IntervalInMinutes { get; set; }
-
         public string AudioFileName { get; set; }
+
+        public bool CanViberation { get; set; }
+        public bool CanPlayAudio { get; set; }
+        public bool CanShowMessage { get; set; }
+
     }
-
-    public class DataSetReader
-    {
-        public DataTable Read()
-        {
-
-
-            var path = Android.OS.Environment.ExternalStorageDirectory.AbsolutePath;
-            var filename = Path.Combine(path.ToString(), "myfile.txt");
-
-            File.WriteAllText(filename, "Write this text into a file");
-
-
-
-            var directory = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads);
-
-
-            var file = System.IO.Path.Combine(directory.AbsolutePath, "100.XML");
-
-            DataSet dst = new DataSet();
-            dst.ReadXml(file);
-           return dst.Tables[0];
-        }
-    }
-
 }

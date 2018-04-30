@@ -1,11 +1,10 @@
-﻿using System;
+﻿using App2.Models;
+using System;
 
 namespace App2
 {
     public interface IReminderService
     {
-        void Remind(string title, string message, int intervalInMinutes, string audioFileName);
-
-        void ShowAlert(string message);
+        void Remind(Item item);
     }
 }

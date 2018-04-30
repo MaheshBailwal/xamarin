@@ -17,9 +17,9 @@ namespace App2.Services
             items = new List<Item>();
             var mockItems = new List<Item>
             {
-                new Item { Id = 1, Name = "One", IsReminderEnabled = true, Notes="Notes of reminder" + Environment.NewLine + "1. One thing is to be what the" +  Environment.NewLine + "2. Two thing is to be what the"
+                new Item { Id = 1, Name = "One", IsReminderEnabled = true, VerbirationDuration=2, Notes="Notes of reminder" + Environment.NewLine + "1. One thing is to be what the" +  Environment.NewLine + "2. Two thing is to be what the"
                 , IntervalInMinutes=1},
-                new Item { Id = 2, Name = "Two", IsReminderEnabled = true, Notes="Notes of reminder", IntervalInMinutes=1}
+                new Item { Id = 2, Name = "Two", IsReminderEnabled = true, VerbirationDuration=2,Notes="Notes of reminder", IntervalInMinutes=1}
             };
 
             foreach (var item in mockItems)
