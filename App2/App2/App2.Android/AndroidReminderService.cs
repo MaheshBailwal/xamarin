@@ -25,6 +25,8 @@ namespace App2.Droid
             alarmIntent.PutExtra("title", item.Name);
             alarmIntent.PutExtra("interval", item.IntervalInMinutes);
             alarmIntent.PutExtra("audioFileName", item.AudioFileName);
+            alarmIntent.PutExtra("VerbirationDuration", item.VerbirationDuration);
+
 
             alarmIntent.PutExtra("CanPlayAudio", item.CanPlayAudio);
             alarmIntent.PutExtra("CanShowMessage", item.CanShowMessage);

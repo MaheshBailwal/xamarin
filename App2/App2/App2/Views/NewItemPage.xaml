@@ -7,50 +7,55 @@
         <ToolbarItem Text="Save" Clicked="Save_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
+        <ScrollView Orientation="Vertical">
+            <StackLayout Spacing="20" Padding="15">
 
-            <Label Text="ID" FontSize="Medium" />
-            <Entry Text="{Binding Item.Id}" FontSize="Small" />
-
-            <Label Text="Name" FontSize="Medium" />
-            <Entry Text="{Binding Item.Name}" FontSize="Small" />
-           
-            <Label Text="Notes" FontSize="Medium" />
-            <Editor Text="{Binding Item.Notes}" FontSize="Small" Margin="0" />
-           
-            <Label Text="Interval" FontSize="Medium" />
-            <Editor Text="{Binding Item.IntervalInMinutes}" FontSize="Small" Margin="0" />
-
-            <Label Text="Audio File (in downloads)" FontSize="Medium" />
-            <Editor Text="{Binding Item.AudioFileName}" FontSize="Small" Margin="0" />
-
-
-
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
        
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                
-                <Label Text="Enabled" FontSize="Medium" Grid.Column="0" Grid.Row="0" />
-                <Switch IsToggled="{Binding Item.IsReminderEnabled}" Grid.Column="1" Grid.Row="0"></Switch>
+                <Label Text="ID" FontSize="Medium" />
+                <Entry Text="{Binding Item.Id}" FontSize="Small" />
 
-                <Label Text="Viberate" FontSize="Medium" Grid.Column="0" Grid.Row="1" />
-                <Switch IsToggled="{Binding Item.CanViberation}" Grid.Column="1" Grid.Row="1"></Switch>
+                <Label Text="Name" FontSize="Medium" />
+                <Entry Text="{Binding Item.Name}" FontSize="Small" />
 
-                <Label Text="Play" FontSize="Medium" Grid.Column="0" Grid.Row="2" />
-                <Switch IsToggled="{Binding Item.CanPlayAudio}" Grid.Column="1" Grid.Row="2"></Switch>
+                <Label Text="Notes" FontSize="Medium" />
+                <Editor Text="{Binding Item.Notes}" FontSize="Small" Margin="0" />
 
-                <Label Text="Message PopUp" FontSize="Medium" Grid.Column="0" Grid.Row="3" />
-                <Switch IsToggled="{Binding Item.CanShowMessage}" Grid.Column="1" Grid.Row="3"></Switch>
+                <Label Text="Interval" FontSize="Medium" />
+                <Entry Keyboard="Numeric"  Text="{Binding Item.IntervalInMinutes}" FontSize="Small" Margin="0" />
 
-            </Grid>
+                <Label Text="Viberation Duration" FontSize="Medium" />
+                <Entry Keyboard="Numeric"  Text="{Binding Item.VerbirationDuration}" FontSize="Small" Margin="0" />
+
+                <Label Text="Audio File (in downloads)" FontSize="Medium" />
+                <Editor Text="{Binding Item.AudioFileName}" FontSize="Small" Margin="0" />
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Enabled" FontSize="Medium" Grid.Column="0" Grid.Row="0" />
+                    <Switch IsToggled="{Binding Item.IsReminderEnabled}" Grid.Column="1" Grid.Row="0"></Switch>
+
+                    <Label Text="Viberate" FontSize="Medium" Grid.Column="0" Grid.Row="1" />
+                    <Switch IsToggled="{Binding Item.CanViberation}" Grid.Column="1" Grid.Row="1"></Switch>
+
+                    <Label Text="Play" FontSize="Medium" Grid.Column="0" Grid.Row="2" />
+                    <Switch IsToggled="{Binding Item.CanPlayAudio}" Grid.Column="1" Grid.Row="2"></Switch>
+
+                    <Label Text="Message PopUp" FontSize="Medium" Grid.Column="0" Grid.Row="3" />
+                    <Switch IsToggled="{Binding Item.CanShowMessage}" Grid.Column="1" Grid.Row="3"></Switch>
+
+                </Grid>
+            
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

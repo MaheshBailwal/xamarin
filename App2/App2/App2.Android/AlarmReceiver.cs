@@ -51,7 +51,7 @@ namespace App2.Droid
             if (intent.GetBooleanExtra("CanViberation", true))
             {
                 Vibrator vibrator = (Vibrator)context.GetSystemService(Context.VibratorService);
-                vibrator.Vibrate(5 * 1000);
+                vibrator.Vibrate(intent.GetIntExtra("VerbirationDuration", 3) * 1000);
             }
 
             if (intent.GetBooleanExtra("CanPlayAudio", true))
