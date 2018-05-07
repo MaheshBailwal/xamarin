@@ -20,7 +20,7 @@ namespace App2.Services
         public SqlLiteDataStore()
         {
 
-           var sqliteFilename = "ServiceReminder.db3";
+           var sqliteFilename = "DayanDb.db3";
             string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
             var path = Path.Combine(documentsPath, sqliteFilename);
 
@@ -37,6 +37,13 @@ namespace App2.Services
         {
             lock (locker)
             {
+             var _item  =  database.Table<Item>().FirstOrDefault(s => s.Id == item.Id);
+
+                if (_item != null)
+                {
+                    database.Table<Item>().Delete(arg => arg.Id == item.Id);
+                }
+
                 database.InsertOrReplace(item);
             }
 
@@ -54,7 +61,14 @@ namespace App2.Services
         public async Task<Item> GetItemAsync(string id)
         {
      
-            return database.Table<Item>().FirstOrDefault(s => s.Id == int.Parse(id));
+            var item = database.Table<Item>().FirstOrDefault(s => s.Id == int.Parse(id));
+
+            if(item == null)
+            {
+                item = new Item();
+            }
+
+            return item;
         }
 
         public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)

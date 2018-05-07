@@ -12,7 +12,7 @@ namespace App2
 		{
 			InitializeComponent();
 
-            MainPage = new NavigationPage(new ItemsPage());
+            MainPage = new NavigationPage(new NewItemPage());
 
         }
 
