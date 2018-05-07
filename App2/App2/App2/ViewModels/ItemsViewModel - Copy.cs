@@ -11,15 +11,15 @@ using System.Linq;
 
 namespace App2.ViewModels
 {
-    public class ItemsViewModel : BaseViewModel
+    public class ItemViewModel : BaseViewModel
     {
         public ObservableCollection<Item> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
-        public ItemsViewModel()
+        public ItemViewModel()
         {
             Title = "Browse";
             Items = new ObservableCollection<Item>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+           // LoadItemsCommand = new Command(async () => await ExecuteLoadItemCommand());
 
 
             MessagingCenter.Subscribe<NewItemPage, Item>(this, "Upsert", async (obj, item) =>
@@ -43,18 +43,15 @@ namespace App2.ViewModels
             });
         }
 
-        async Task ExecuteLoadItemsCommand()
+      public async Task<Item> ExecuteLoadItem()
         {
-            if (IsBusy)
-                return;
-
-            IsBusy = true;
-
+           
             try
             {
                 Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
+                var item = await DataStore.GetItemAsync("0");
+
+                if(item != null)
                 {
                     Items.Add(item);
                 }
@@ -67,6 +64,8 @@ namespace App2.ViewModels
             {
                 IsBusy = false;
             }
+
+            return await Task.FromResult(Items.FirstOrDefault());
         }
     }
 }

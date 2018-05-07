@@ -12,9 +12,32 @@ namespace App2.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
+     //   public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
 
-        bool isBusy = false;
+
+        //public BaseViewModel()
+        //{
+        //    var data = DependencyService.Get<IDataStore<Item>>();
+        //}
+
+
+        public IDataStore<Item> DataStore
+        {
+            get
+            {
+                IDataStore<Item> dataStore = DependencyService.Get<IDataStore<Item>>();
+
+                if (dataStore == null)
+                {
+                    dataStore = new MockDataStore();
+                }
+
+                return dataStore;
+            }
+    }
+
+
+    bool isBusy = false;
         public bool IsBusy
         {
             get { return isBusy; }

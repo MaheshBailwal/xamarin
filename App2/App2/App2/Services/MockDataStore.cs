@@ -28,22 +28,6 @@ namespace App2.Services
             }
         }
 
-        public async Task<bool> AddItemAsync(Item item)
-        {
-            items.Add(item);
-
-            return await Task.FromResult(true);
-        }
-
-        public async Task<bool> UpdateItemAsync(Item item)
-        {
-            var _item = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();
-            items.Remove(_item);
-            items.Add(item);
-
-            return await Task.FromResult(true);
-        }
-
         public async Task<bool> UpSertAsync(Item item)
         {
             var _item = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();

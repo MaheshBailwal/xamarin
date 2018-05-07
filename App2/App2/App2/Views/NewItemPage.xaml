@@ -9,11 +9,7 @@
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">
             <StackLayout Spacing="20" Padding="15">
-
-       
-                <Label Text="ID" FontSize="Medium" />
-                <Entry Text="{Binding Item.Id}" FontSize="Small" />
-
+            
                 <Label Text="Name" FontSize="Medium" />
                 <Entry Text="{Binding Item.Name}" FontSize="Small" />
 
